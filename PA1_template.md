@@ -118,7 +118,8 @@ splitda = split(da2, da2$date)
 totalsteps = sapply(splitda, function(x) sum(x$steps, na.rm = TRUE))
 ```
 
-Make a histogram of the new data set
+
+Make a histogram of the new data set.
 
 ```r
 # histogram of the total number of steps taken each day
@@ -127,7 +128,8 @@ hist(totalsteps, xlab = "Total steps taken per day")
 
 ![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
-Report the mean and median of the total steps:
+
+Find the mean and median of the total steps:
 
 ```r
 # mean: total number of step taken each day, averaged over all days
@@ -146,6 +148,7 @@ median(totalsteps)
 ```
 ## [1] 10766
 ```
+
 
 We see that replacing the missing values with the average number of steps has 3 effects: (1) It pushed the mean and mode upwards (2) Made the mean and mode equal (3) Reduced the skewness in the distribution.
 
@@ -182,7 +185,8 @@ tmpframe = f(spda[[2]], "weekend")
 dataframe = rbind(dataframe, tmpframe)
 ```
 
-Compare the average steps taken in each time interval for week days and week ends:
+
+Visually compare the average steps taken in each time interval for week days and week ends:
 
 ```r
 # Plot to compare average steps in each time slot over week days/ week ends
@@ -199,5 +203,6 @@ xyplot(avesteps ~ interval | wkdaywkend, data = dataframe, type = "l", layout = 
 ```
 
 ![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+
 
 The figure shows that the subjects started moving about late in the morning during week ends. The peak morning activity (around interval 800) was also much smaller over week ends. There was late evening activity (around interval 2000) during week ends.
